@@ -34,7 +34,7 @@ RUN conda activate nerfstream
 
 RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
 # install depend
-RUN conda install pytorch==1.12.1 torchvision==0.13.1 cudatoolkit=11.3 -c pytorch
+RUN conda install pytorch==1.12.1 torchvision==0.13.1 cudatoolkit=11.3 -c pytorch \
 Copy requirements.txt ./
 RUN pip install -r requirements.txt
 
@@ -45,7 +45,7 @@ RUN pip install tensorflow-gpu==2.8.0
 RUN pip uninstall protobuf
 RUN pip install protobuf==3.20.1
 
-RUN conda install ffmpeg
+RUN conda install ffmpeg \
 Copy ../python_rtmpstream /python_rtmpstream
 WORKDIR /python_rtmpstream/python
 RUN pip install .
